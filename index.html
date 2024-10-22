@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking system</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        
+        body { padding: 20px; background-color: #f8f9fa; }
+    .centered { max-width: 400px; margin: 0 auto; }
+    .message { margin-top: 10px; }
+    footer { margin-top: 40px; padding: 20px; background-color: #343a40; color: #fff; text-align: center; }
+    .home-content { margin-top: 30px; }
+    .feature { margin-top: 20px; }
+    .feature img { max-width: 100%; border-radius: 10px; }
+    .highlight { color: #007bff; }
+    h2 { font-size: 2.5rem; margin-bottom: 20px; }
+    h4 { font-weight: bold; }
+    .btn-primary { background-color: #007bff; border-color: #007bff; }
+    .btn-primary:hover { background-color: #0056b3; border-color: #0056b3; }
+
+
+
+
+      </style>
+    
+</head>
+<body>
+
+
+    <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Banking System</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" onclick="showHome()">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showRegister()">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showLogin()">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showBankingPage()">Deposit</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showBankingPage()">Withdraw</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+    <!-- Home Page -->
+    <div id="homePage" class="container text-center mt-5 home-content">
+        <h2 class="highlight">Welcome to Online Banking</h2>
+        <p class="text-success fs-5">Our online banking system offers a convenient way to manage your finances. With a simple interface, you can:</p>
+    
+        <!-- Features Section -->
+        <div class="row feature">
+          <div class="col-md-6">
+            <h4>Secure and Fast Transactions</h4>
+            <p>Transfer money, check your balance, and view your transactions in real-time with our secure platform.</p>
+            <img src="https://dth95m2xtyv8v.cloudfront.net/tesseract/assets/blog/Unlocking_the_Digital_Fort_Decoding_Secure_Electronic_Transactions_SET_a8c57c47a8.png"  width= "100%" height="300px" alt="Online banking security">
+          </div>
+          <div class="col-md-6">
+            <h4>24/7 Access to Your Account</h4>
+            <p>Manage your account anytime, anywhere. Our system is available around the clock for your convenience.</p>
+            <img src="https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-1074f35/nitropack.ams3.cdn.digitaloceanspaces.com/upload/blog/24-7_support_coverage_cover_ccc92f25a7.jpg" width= "100%" height="300px" alt="24/7 access">
+          </div>
+        </div>
+    
+        <!-- <div class="row feature mt-4">
+          <div class="col-md-6">
+            <h4>Deposit and Withdraw Funds Easily</h4>
+            <p>With a few clicks, you can deposit or withdraw money from your account. Track your transactions in real-time.</p>
+            <img src="https://via.placeholder.com/500x300" alt="Deposit and Withdraw">
+          </div>
+          <div class="col-md-6">
+            <h4>Secure Login and Authentication</h4>
+            <p>We prioritize your security. Our multi-layered authentication ensures that your data remains safe and secure.</p>
+            <img src="https://via.placeholder.com/500x300" alt="Secure Login">
+          </div>
+        </div> -->
+    
+        <!-- Call to Action -->
+        <div class="feature mt-5">
+          <h4>Join Today</h4>
+          <p>Create an account to experience hassle-free online banking. Click <a href="#" onclick="showRegister()">here to register</a> or <a href="#" onclick="showLogin()">login to your account</a> if you're already a member.</p>
+        </div>
+      </div>
+    
+      <!-- Register Form -->
+      <div id="registerForm" class="container centered" style="display:none;">
+        <h4>Create an account</h4>
+        <input type="text" id="regAccount" class="form-control mb-2" placeholder="Account Number" required>
+        <input type="text" id="regUsername" class="form-control mb-2" placeholder="Username" required>
+        <input type="password" id="regPassword" class="form-control mb-2" placeholder="Password" required>
+        <button class="btn btn-primary w-100" onclick="register()">Register</button>
+        <p id="regMessage" class="text-center message"></p>
+      </div>
+    
+      <!-- Login Form -->
+      <div id="loginForm" class="container centered" style="display:none;">
+        <h4>Login </h4>
+        <input type="text" id="loginAccount" class="form-control mb-2" placeholder="Account Number" required>
+        <input type="password" id="loginPassword" class="form-control mb-2" placeholder="Password" required>
+        <button class="btn btn-primary w-100" onclick="login()">Login</button>
+        <p id="loginMessage" class="text-center message"></p>
+      </div>
+    
+      <!-- Home Page (Deposit & Withdraw) -->
+      <div id="bankingPage" class="container centered" style="display:none;">
+        <h4></h4>
+        <p id="balance" class="text-center"></p>
+        
+        <h5>Deposit 💰</h5>
+        <input type="number" id="depositAmount" class="form-control mb-2" placeholder="Amount" required>
+        <input type="password" id="depositPassword" class="form-control mb-2" placeholder="Password" required>
+        <button class="btn btn-success w-100" onclick="deposit()">Deposit</button>
+        <p id="depositMessage" class="text-center message"></p>
+        
+        <h5 class="mt-4">Withdraw 💸</h5>
+        <input type="number" id="withdrawAmount" class="form-control mb-2" placeholder="Amount" required>
+        <input type="password" id="withdrawPassword" class="form-control mb-2" placeholder="Password" required>
+        <button class="btn btn-danger w-100" onclick="withdraw()">Withdraw</button>
+        <p id="withdrawMessage" class="text-center message"></p>
+      </div>
+
+
+    
+      <!-- Footer -->
+      <footer>
+        <p> Banking System &copy; 2024</p>
+      </footer>
+    
+    
+
+
+
+
+
+    <!-- Features Section
+    <div class="row feature">
+      <div class="col-md-6">
+        <h4>Secure and Fast Transactions</h4>
+        <p>Transfer money, check your balance, and view your transactions in real-time with our secure platform.</p>
+        <img src="https://dth95m2xtyv8v.cloudfront.net/tesseract/assets/blog/Unlocking_the_Digital_Fort_Decoding_Secure_Electronic_Transactions_SET_a8c57c47a8.png" alt="Online banking security">
+      </div>
+      <div class="col-md-6">
+        <h4>24/7 Access to Your Account</h4>
+        <p>Manage your account anytime, anywhere. Our system is available around the clock for your convenience.</p>
+        <img src="https://cdn-aahbe.nitrocdn.com/atRjhaAsMHbPaZMOukHscOVOXfGAsiqT/assets/images/optimized/rev-1074f35/nitropack.ams3.cdn.digitaloceanspaces.com/upload/blog/24-7_support_coverage_cover_ccc92f25a7.jpg" alt="24/7 access">
+      </div>
+    </div>
+
+ -->
+
+
+
+
+
+<script src="./Script.js"></script>
+
+
+</body>
+</html>
